@@ -2,9 +2,11 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { FaEye } from "react-icons/fa6";
+import { FaEye, FaRegStar, FaStar } from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
 import { CiShare2 } from "react-icons/ci";
+import moment from 'moment';
+import Rating from 'react-rating';
 
 
 const NewsCard = ({news}) => {
@@ -17,8 +19,8 @@ const NewsCard = ({news}) => {
             <div className='d-flex gap-2 align-items-center'>
                 <div><img style={{'width':'50px', 'border-radius':'50px'}} src={author.img} alt="" /></div>
                 <div>
-                    <h6> <strong>{author.name}</strong> </h6>
-                    <p className='mb-0'><small>{author.published_date}</small></p>
+                    <h6> <strong>{author?.name}</strong> </h6>
+                    <p className='mb-0'><small>{moment(author?.published_date).format('yyyy-MM-D')}</small></p>
                 </div>
             </div>
             <div>
@@ -40,7 +42,16 @@ const NewsCard = ({news}) => {
       </Card.Body>
       <Card.Footer className="text-muted">
         <div className='d-flex justify-content-between'>
-            <div>{rating.number} {rating.badge}</div>
+            <div>
+                <Rating
+                placeholderRating={rating.number}
+                readonly
+                emptySymbol={<FaRegStar></FaRegStar>}
+                placeholderSymbol={<FaStar className='text-warning'></FaStar>}
+                fullSymbol={<FaStar></FaStar>}
+                ></Rating> 
+                 <span className='mx-2'>{rating?.number}</span>
+                </div>
             <div><FaEye /> {total_view}</div>
         </div>
       </Card.Footer>
