@@ -1,4 +1,3 @@
-
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -6,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAD34t_M0UWsphyMbZeN7G1Q5quvgr2NsE",
-  authDomain: "the-news-dragon-6528d.firebaseapp.com",
-  projectId: "the-news-dragon-6528d",
-  storageBucket: "the-news-dragon-6528d.appspot.com",
-  messagingSenderId: "812959466340",
-  appId: "1:812959466340:web:5d9cdb4179d06d6d1cf071"
+  apiKey: "AIzaSyCRxC_yXXoK68pkh5oyk5VqPXDgsG7AQx4",
+  authDomain: "news-dragon-new.firebaseapp.com",
+  projectId: "news-dragon-new",
+  storageBucket: "news-dragon-new.appspot.com",
+  messagingSenderId: "254941324451",
+  appId: "1:254941324451:web:155159205b0f9d856acb16"
 };
 
 // Initialize Firebase

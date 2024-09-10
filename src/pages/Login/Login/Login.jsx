@@ -1,10 +1,37 @@
-import React from "react";
-import { Button, Container, Form } from "react-bootstrap";
-import { FaGoogle } from "react-icons/fa";
-import { CiFacebook } from "react-icons/ci";
-import { FaXTwitter } from "react-icons/fa6";
+import React, { useContext, useState } from "react";
+import { Form, Link, replace, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+
 
 const Login = () => {
+  const {signIn} = useContext(AuthContext);
+  const [error, setError] = useState();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/category/0';
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+    .then((result) => {
+      // Signed in 
+      const user = result.user;
+      navigate(from, {replace: true});
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setError(errorMessage);
+    });
+  
+
+  }
+
   return (
     <section className="vh-100">
   <div className="container py-5 h-100">
@@ -14,17 +41,19 @@ const Login = () => {
           className="img-fluid" alt="Phone image" />
       </div>
       <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <form>
+        <h2>Please Login</h2>
+        <p>{error}</p>
+        <Form onSubmit={handleLogin}>
 
           <div data-mdb-input-init className="form-outline mb-4">
-            <input type="email" id="form1Example13" className="form-control form-control-lg" />
+            <input type="email" name="email" id="form1Example13" className="form-control form-control-lg" />
             <label className="form-label" htmlFor="form1Example13">Email address</label>
           </div>
 
    
           <div data-mdb-input-init className="form-outline mb-4">
-            <input type="password" id="form1Example23" className="form-control form-control-lg" />
-            <label className="form-label" htmlFor="form1Example23">Password</label>
+            <input type="password" name="password" id="form1Example24" className="form-control form-control-lg" />
+            <label className="form-label" htmlFor="form1Example24">Password</label>
           </div>
 
           <div className="d-flex justify-content-around align-items-center mb-4">
@@ -51,7 +80,8 @@ const Login = () => {
             role="button">
             <i className="fab fa-twitter me-2"></i>Continue with Twitter</a>
 
-        </form>
+        </Form>
+        <p className="mt-3">I want to register! <Link to='/register'>Click here</Link></p>
       </div>
     </div>
   </div>

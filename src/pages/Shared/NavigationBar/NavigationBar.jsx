@@ -6,7 +6,17 @@ import { FaUserCircle } from "react-icons/fa";
 
 
 const NavigationBar = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
+
+    const handlLogOut = () => {
+        logOut()
+        .then()
+        .catch(
+            error => console.log(error)
+            
+        )
+        
+    }
     return (
         <div>
             <Container>
@@ -15,8 +25,8 @@ const NavigationBar = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
                             <Nav.Link><Link to="/category/0">Home</Link> </Nav.Link>
-                            <Nav.Link >About</Nav.Link>
-                            <Nav.Link >Career</Nav.Link>
+                            <Nav.Link ><Link to="">About</Link></Nav.Link>
+                            <Nav.Link ><Link to="">Career</Link></Nav.Link>
                             
                         </Nav>
                         <Nav className='align-items-center justify-content-center'>
@@ -28,7 +38,7 @@ const NavigationBar = () => {
                             }
                             
                             {user ? 
-                            <Button variant="secondary">Logout</Button> : 
+                            <Button variant="secondary" onClick={handlLogOut}>Logout</Button> : 
                             <Link to="/login"><Button variant="secondary">Login</Button></Link>
                             }
                           
