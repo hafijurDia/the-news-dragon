@@ -52,22 +52,22 @@ const Register = () => {
             <Form onSubmit={handleRegister}>
 
             <div data-mdb-input-init className="form-outline mb-4">
-                <input type="text" name='name' className="form-control" placeholder='Enter your full name'/>
+                <input type="text" name='name' className="form-control" placeholder='Enter your full name' required/>
               </div>
               <div data-mdb-input-init className="form-outline mb-4">
                 <input type="text" name='profileImage'  className="form-control" placeholder='Enter your image Url'/>
               </div>
 
               <div data-mdb-input-init className="form-outline mb-4">
-                <input type="email" name='email' className="form-control" placeholder='Enter your email'/>
+                <input type="email" name='email' className="form-control" placeholder='Enter your email' required/>
               </div>
 
 
               <div data-mdb-input-init className="form-outline mb-4">
-                <input type="password" name='password'  className="form-control" placeholder='Enter your password' />
+                <input type="password" name='password'  className="form-control" placeholder='Enter your password' required/>
               </div>
               <div data-mdb-input-init className="form-outline mb-4">
-                <input type="password" name='confirmPassword' className="form-control" placeholder='Confirm your password' />
+                <input type="password" name='confirmPassword' className="form-control" placeholder='Confirm your password' required/>
               </div>
 
 
