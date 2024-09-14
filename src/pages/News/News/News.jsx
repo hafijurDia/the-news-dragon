@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link, useLoaderData } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
 import { FaArrowLeft } from "react-icons/fa";
@@ -27,17 +26,6 @@ const News = () => {
 };
 
 // PropTypes validation
-News.propTypes = {
-    news: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        details: PropTypes.string.isRequired,
-        image_url: PropTypes.string.isRequired,
-        rating: PropTypes.string.isRequired,
-        total_view: PropTypes.string.isRequired,
-        author: PropTypes.string.isRequired,
-    }).isRequired,
-};
 
 
 export default News;

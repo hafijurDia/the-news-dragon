@@ -2,11 +2,13 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { FaEye, FaRegStar, FaStar } from "react-icons/fa6";
+import { FaEye} from "react-icons/fa6";
 import { CiBookmark } from "react-icons/ci";
 import { CiShare2 } from "react-icons/ci";
 import moment from 'moment';
-import Rating from 'react-rating';
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 
 
 const NewsCard = ({news}) => {
@@ -17,7 +19,7 @@ const NewsCard = ({news}) => {
       <Card.Header>
         <div className='d-flex justify-content-between align-items-center'>
             <div className='d-flex gap-2 align-items-center'>
-                <div><img style={{'width':'50px', 'border-radius':'50px'}} src={author.img} alt="" /></div>
+                <div><img style={{'width':'50px', 'borderRadius':'50px'}} src={author.img} alt="" /></div>
                 <div>
                     <h6> <strong>{author?.name}</strong> </h6>
                     <p className='mb-0'><small>{moment(author?.published_date).format('yyyy-MM-D')}</small></p>
@@ -42,16 +44,13 @@ const NewsCard = ({news}) => {
       </Card.Body>
       <Card.Footer className="text-muted">
         <div className='d-flex justify-content-between'>
-            <div>
-                <Rating
-                placeholderRating={rating.number}
-                readonly
-                emptySymbol={<FaRegStar></FaRegStar>}
-                placeholderSymbol={<FaStar className='text-warning'></FaStar>}
-                fullSymbol={<FaStar></FaStar>}
-                ></Rating> 
+            <div className='flex-grow-1 d-flex align-items-center'>
+                
+                 <Rating style={{ maxWidth: 100 }} value={Math.round(rating?.number || 0)} readOnly />
                  <span className='mx-2'>{rating?.number}</span>
                 </div>
+
+
             <div><FaEye /> {total_view}</div>
         </div>
       </Card.Footer>
@@ -68,7 +67,7 @@ NewsCard.propTypes = {
         title: PropTypes.string.isRequired,
         details: PropTypes.string.isRequired,
         image_url: PropTypes.string.isRequired,
-        rating: PropTypes.string.isRequired,
+        rating: PropTypes.toString().isRequired,
         total_view: PropTypes.string.isRequired,
         author: PropTypes.string.isRequired,
     }).isRequired,

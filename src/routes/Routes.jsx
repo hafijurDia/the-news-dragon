@@ -11,50 +11,49 @@ import Terms from "../pages/Shared/Terms/Terms";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: '/',
         element: <LoginLayout></LoginLayout>,
         children: [
             {
-                path: "/",
+                path: '/',
                 element: <Navigate to="/category/0"></Navigate>
             },
             {
-                path: '/login',
+                path: 'login',
                 element: <Login></Login>
             },
             {
-                path: '/register',
+                path: 'register',
                 element: <Register></Register>
-            },
+            }, 
             {
-                path: '/terms',
+                path: 'terms', 
                 element: <Terms></Terms>
             }
         ]
     },
     {
-        path: "category",
+        path: 'category',
         element: <Main></Main>,
         children: [
-           
             {
                 path: ':id',
                 element: <Category></Category>,
-                loader: ({params}) => fetch(`http://localhost:5000/categories/${params.id}`),
-            },
+                loader: ({params}) => fetch(`https://the-news-dragon-server-new.vercel.app/categories/${params.id}`)
+            }
         ]
-    },
+    }, 
     {
-        path: "news",
+        path: 'news', 
         element: <SingleNewsLayout></SingleNewsLayout>,
         children: [
             {
                 path: ':id',
                 element: <PrivateRoute><News></News></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/news/${params.id}`),
-            },
-
+                loader: ({params}) => fetch(`https://the-news-dragon-server-new.vercel.app/news/${params.id}`)
+            }
         ]
-    },
+    }
 ])
+
 export default router;
