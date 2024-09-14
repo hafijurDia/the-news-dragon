@@ -26,10 +26,11 @@ const NavigationBar = () => {
                             <Link to="/category/0">Home</Link> 
                             <Link to="/about">About</Link>
                             <Link to="/Career">Career</Link>
+                            
                         </Nav>
                         <Nav className='align-items-center justify-content-center gap-2'>
                             {
-                                user && 
+                                user ? <div className='d-flex align-items-center justify-content-center'><img style={{ width: '40px', borderRadius: '25px' }} src={user.photoURL} alt="" /> <p className='m-0'>{user.displayName}</p></div> :
                                 <FaUserCircle style={{fontSize:'2rem'}}></FaUserCircle>
                             }
                             {user ? 

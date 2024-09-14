@@ -4,7 +4,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Login = () => {
-  const {signIn} = useContext(AuthContext);
+  const {signIn, handleGoogleLogin} = useContext(AuthContext);
   const [error, setError] = useState();
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,6 +31,22 @@ const Login = () => {
   
 
   }
+
+// login with google
+  const handleGoogleLoginBtn = (e) => {
+    e.preventDefault();
+    handleGoogleLogin()
+      .then((result) => {
+        const user = result.user;
+        navigate(from, {replace: true});
+        console.log("Google login successful:", user);
+        // Navigate to a different route or show a success message
+      })
+      .catch((error) => {
+        console.log("Google login failed:", error.message);
+      });
+  };
+
 
   return (
     <section className="vh-100">
@@ -66,17 +82,16 @@ const Login = () => {
           </div>
 
       
-          <button type="submit" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary btn-lg btn-block w-100">Sign in</button>
+          <button type="submit" className="btn btn-primary btn-lg btn-block w-100">Sign in</button>
 
           <div className="divider d-flex align-items-center my-4">
             <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
           </div>
 
-          <a data-mdb-ripple-init className="btn btn-primary btn-lg btn-block w-100 mb-3" style={{backgroundColor: '#3b5998'}} href="#!"
-            role="button">
-            <i className="fab fa-facebook-f me-2"></i>Continue with Facebook
+          <a onClick={handleGoogleLoginBtn} className="btn btn-primary btn-lg btn-block w-100 mb-3" style={{backgroundColor: 'rgb(223 13 13)'}} >
+            <i className="fab fa-facebook-f me-2"></i>Continue with Google
           </a>
-          <a data-mdb-ripple-init className="btn btn-primary btn-lg btn-block w-100" style={{backgroundColor: '#55acee'}} href="#!"
+          <a  className="btn btn-primary btn-lg btn-block w-100" style={{backgroundColor: '#55acee'}} href="#!"
             role="button">
             <i className="fab fa-twitter me-2"></i>Continue with Twitter</a>
 
