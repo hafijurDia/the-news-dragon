@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import app from '../firebase/firebase.config.js';
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 
 
 export const AuthContext = createContext(null);
@@ -38,6 +38,12 @@ export const AuthProvider = ({children}) => {
         signInWithPopup(auth, googleProvider);
     }
 
+      // Forgot password function
+      const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email);
+    };
+
+
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
             console.log('Logged in user inside auth state observer', loggedUser)
@@ -56,6 +62,7 @@ export const AuthProvider = ({children}) => {
         createUser,
         signIn,
         handleGoogleLogin,
+        resetPassword,
         logOut,
     }
 

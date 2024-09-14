@@ -11,6 +11,7 @@ import Terms from "../pages/Shared/Terms/Terms";
 import About from "../pages/About/About";
 import SecondaryLayout from "../layouts/SecondaryLayout";
 import Career from "../pages/Career/Career";
+import ForgetPassword from "../pages/Login/ForgetPassword/ForgetPassword";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            }, 
+            {
+                path: 'forget-password',
+                element: <ForgetPassword></ForgetPassword>
             }, 
             {
                 path: 'terms', 
