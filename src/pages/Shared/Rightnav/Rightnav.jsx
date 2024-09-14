@@ -8,13 +8,14 @@ import classroom from '../../../assets/qZone2.png'
 import playground from '../../../assets/qZone3.png'
 import '../Rightnav/Rightnav.css'
 import { FaGoogle, FaGithub } from "react-icons/fa6";
+import { Link } from 'react-router-dom'
 
 export default function Rightnav() {
   return (
     <div>
       <div className='mb-5'>
       <p className="fs-5 fw-bold">Login With</p>
-      <Button className="btn w-100 border-primary bg-white text-primary mb-2"><FaGoogle /> Login with Google</Button>
+      <Button className="btn w-100 border-primary bg-white text-primary mb-2"><FaGoogle /> <Link to='/login'>Login with Google</Link></Button>
       <Button className="btn w-100 border-secondary bg-white text-secondary"><FaGithub /> Login with Github</Button>
       </div>
       <div className='mb-5'>

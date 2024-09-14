@@ -5,12 +5,11 @@ import { Button, Container } from 'react-bootstrap';
 import Marquee from "react-fast-marquee";
 
 
-
 export default function Header() {
     
     return (
         <>
-        <Container className='py-5'>
+        <Container className='py-3 px-0'>
             <div className="text-center">
                 <img src={logo} alt="" />
                 <p className="text-secondary"><small>Journalism Without Fear or Favour</small></p>

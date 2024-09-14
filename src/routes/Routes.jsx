@@ -8,6 +8,9 @@ import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import Terms from "../pages/Shared/Terms/Terms";
+import About from "../pages/About/About";
+import SecondaryLayout from "../layouts/SecondaryLayout";
+import Career from "../pages/Career/Career";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +32,22 @@ const router = createBrowserRouter([
             {
                 path: 'terms', 
                 element: <Terms></Terms>
-            }
+            },
+            
+        ]
+    },
+    {
+        path: '/',
+        element: <SecondaryLayout></SecondaryLayout>,
+        children: [
+            {
+                path: 'about', 
+                element: <About></About>
+            },
+            {
+                path: 'career', 
+                element: <Career></Career>
+            },
         ]
     },
     {
