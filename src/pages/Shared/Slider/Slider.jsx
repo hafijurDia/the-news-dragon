@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import SlickSlider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import '../Slider/Slider.css'
+import { LanguageContext } from "../../../providers/LanguageProvider";
 
 const Slider = () => {
+  const { translations } = useContext(LanguageContext);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -51,8 +54,8 @@ const Slider = () => {
           >
             <Row>
               <Col className="text-center">
-                <h1>Welcome to Our NGO</h1>
-                <p>Empowering communities for a better tomorrow.</p>
+                <h1>{translations.welcome}</h1>
+                <p>{translations.description}</p>
                 <Button variant="primary" size="lg">
                   Get Involved
                 </Button>
@@ -78,8 +81,8 @@ const Slider = () => {
           >
             <Row>
               <Col className="text-center">
-                <h1>Donate Today</h1>
-                <p>Your support helps us reach more people in need.</p>
+              <h1>{translations.welcome}</h1>
+              <p>{translations.description}</p>
                 <Button variant="primary" size="lg">
                   Donate Now
                 </Button>
@@ -105,8 +108,8 @@ const Slider = () => {
           >
             <Row>
               <Col className="text-center">
-                <h1>Volunteer With Us</h1>
-                <p>Make a difference in your community by volunteering.</p>
+              <h1>{translations.welcome}</h1>
+              <p>{translations.description}</p>
                 <Button variant="primary" size="lg">
                   Become a Volunteer
                 </Button>

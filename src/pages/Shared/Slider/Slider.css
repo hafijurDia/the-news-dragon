@@ -11,8 +11,6 @@
   }
   
   .slick-prev:before, .slick-next:before {
-    color: black; /* Customize arrow color */
-    content: "";
-    
+    color: black; /* Customize arrow color */ 
   }
   
