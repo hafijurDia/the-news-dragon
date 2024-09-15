@@ -1,0 +1,18 @@
+.slick-prev, .slick-next {
+    color: black !important; /* Change the color of the arrow */
+    z-index: 1;
+    font-size: 30px; /* Increase arrow size */
+  }
+  .slick-prev{
+    left: 0px;
+  }
+  .slick-next{
+    right: 0px;
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    color: black; /* Customize arrow color */
+    content: "";
+    
+  }
+  

@@ -12,8 +12,27 @@ import About from "../pages/About/About";
 import SecondaryLayout from "../layouts/SecondaryLayout";
 import Career from "../pages/Career/Career";
 import ForgetPassword from "../pages/Login/ForgetPassword/ForgetPassword";
+import CharchaMain from "../layouts/charcha/CharchaMain";
+import Home from "../pages/Home/Home/Home";
+import Slider from "../pages/Shared/Slider/Slider";
 
 const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <CharchaMain></CharchaMain>,
+        children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
+            {
+                path: '/slider',
+                element: <Slider></Slider>
+            },
+            
+            
+        ]
+    },
     {
         path: '/',
         element: <LoginLayout></LoginLayout>,

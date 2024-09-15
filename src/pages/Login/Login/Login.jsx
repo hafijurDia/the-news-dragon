@@ -16,7 +16,7 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/category/0";
+  const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     // Check if user credentials are stored in localStorage or sessionStorage
@@ -99,7 +99,7 @@ const Login = () => {
                   value={email} 
                   onChange={(e) => setEmail(e.target.value)}
                   id="form1Example13"
-                  className="form-control form-control-lg"
+                  className="form-control form-control-md"
                   required
                 />
                 <label className="form-label" htmlFor="form1Example13">
@@ -114,7 +114,7 @@ const Login = () => {
                   value={password} 
                   onChange={(e) => setPassword(e.target.value)} 
                   id="form1Example24"
-                  className="form-control form-control-lg"
+                  className="form-control form-control-md"
                   required
                 />
                 <label className="form-label" htmlFor="form1Example24">
